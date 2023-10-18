@@ -165,7 +165,7 @@ end
 
 create_block_matrix(matrices::Vector{Matrix{ComplexF64}}) = create_block_matrix(matrices...)
 
-function beta_n(Nx, Ny, x_start, x_end, y_start, y_end, n, angle, P)
+function Toeplitz_matrix_x_to_y(Nx, Ny, x_start, x_end, y_start, y_end, n, angle, P)
 
     # Make_Toeplitz_matrix function
     A_aa = Make_Toeplitz_matrix(Nx, Ny, x_start, x_end, y_start, y_end, n, angle, P)
