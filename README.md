@@ -1,5 +1,6 @@
 # CWA_anisotropy_julia
 
-### Tutorial : 2D_RCWA関数の説明とRCWAの原理を記入
+### [2D_RCWA.ipynb](2D_RCWA.ipynb) : 2D_RCWA関数の説明とRCWAの原理
 
-### Tutorial : Bire_RCWA関数の説明と複屈折RCWAの原理を記入
+### [Bire_RCWA.ipynb](Bire_RCWA.ipynb) : Bire_RCWA関数の説明と複屈折RCWAの原理
+
