@@ -8,7 +8,7 @@ include("layer_eigen.jl")
 include("Redheffer_star.jl")
 include("Pol_Cin_calc.jl")
 
-function RCWA2D_new(λ, θ, ϕ, Λx, Λy, d, E, E_x_to_y, E_y_to_x, N, M, Φ)
+function RCWA2D_bire(λ, θ, ϕ, Λx, Λy, d, Ezz, Exx_x_to_y, Exy_x_to_y, Eyy_y_to_x, Eyx_y_to_x, N, M, Φ)
     
     #1 degree to rad
     θ = θ * π / 180
@@ -74,12 +74,14 @@ function RCWA2D_new(λ, θ, ϕ, Λx, Λy, d, E, E_x_to_y, E_y_to_x, N, M, Φ)
 
     # The scattering matrix is obtained for each layer,
     # and the final scattering matrix is obtained by performing the Redheffer star product.
-    @views @inbounds for i in 1:length(E)
-        
+    @views @inbounds for i in 1:length(Ezz)
+
         #9 ith layer material parameters
-        E_matrix = E[i]
-        E_matrix_x_to_y = E_x_to_y[i]
-        E_matrix_y_to_x = E_y_to_x[i]
+        Ezz_matrix = Ezz[i]
+        Exx_matrix_x_to_y = Exx_x_to_y[i]
+        Exy_matrix_x_to_y = Exy_x_to_y[i]
+        Eyy_matrix_y_to_x = Eyy_y_to_x[i]
+        Eyx_matrix_y_to_x = Eyx_y_to_x[i]
 
         #U = UR[i]
         mu_conv = Matrix(I, NM, NM)
@@ -87,21 +89,20 @@ function RCWA2D_new(λ, θ, ϕ, Λx, Λy, d, E, E_x_to_y, E_y_to_x, N, M, Φ)
         #10 longitudinal k_vector
         #P_Q_kz_new(Kx, Ky, E_matrix_1, E_matrix, mu_conv)
         #E_matrix_1 は Q の方に代入される
-        
-        P, Q, kzl = P_Q_kz_new(Kx, Ky, E_matrix, E_matrix_x_to_y, E_matrix_y_to_x, mu_conv)
+        P, Q, kzl = P_Q_kz_bire(Kx, Ky, Ezz_matrix, Exx_matrix_x_to_y, Exy_matrix_x_to_y, Eyy_matrix_y_to_x, Eyx_matrix_y_to_x, mu_conv)
         push!(kz_matrix, kzl)
         Gamma_squared = P * Q
         
         #11 E-field modes that can propagate in the medium, these are well-conditioned
         W_i, lambda_matrix = eigen_W(Gamma_squared)
         V_i = eigen_V(Q, W_i, lambda_matrix)
-
+        
         #12 calculate scattering matrix
         Li = d[i]
         
         #13 calculation S matrix
         # now define A and B, slightly worse conditioned than W and V
-        A, B = A_B_matrices(W_i, W₀, V_i, V₀)  # ORDER HERE MATTERS A LOT because W_i is not diagonal        
+        A, B = A_B_matrices(W_i, W₀, V_i, V₀)  # ORDER HERE MATTERS A LOT because W_i is not diagonal
         S_layer, Sl_dict = S_layers(A, B, Li, k₀, lambda_matrix)
         push!(S_matrix, S_layer)
         

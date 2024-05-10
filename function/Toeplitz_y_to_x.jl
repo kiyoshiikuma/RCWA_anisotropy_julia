@@ -70,6 +70,9 @@ function Make_Toeplitz_matrix_y(Nx, Ny, x_start, x_end, y_start, y_end, n, P, an
     
         Af_matrix = Toeplitz(Af_r[o_0 - 1 : o_0 - 1 + N], Af[o_0 : o_0 + N])
 
+        # test
+        #Af_matrix = Af_matrix'
+
         #print(size(Af_matrix))
 
         II = Matrix{Complex{Float64}}(I, nn, nn)

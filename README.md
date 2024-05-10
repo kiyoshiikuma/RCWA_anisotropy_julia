@@ -1,9 +1,5 @@
 # CWA_anisotropy_julia
 
-### 作成途中だから、まだ異方性の実装はまだですな
+### Tutorial : 2D_RCWA関数の説明とRCWAの原理を記入
 
-### 一応収束性の問題を解決かな？
-
-### RCWA_2Dの方はただのフーリエ変換、、、RCWA_2D_newは収束性をあげた関数
-
-
+### Tutorial : Bire_RCWA関数の説明と複屈折RCWAの原理を記入
