@@ -6,7 +6,7 @@
 
 ## Acknowledgements
 
-This project includes code that is based on the MIT-licensed work by The Python Packaging Authority. The original code, written in Python, has been adapted and rewritten in Julia.
+This includes code that is based on the MIT-licensed work by The Python Packaging Authority. The original code, written in Python, has been adapted and rewritten in Julia.
 
 - Original Python code by The Python Packaging Authority (MIT License).
 - Julia translation and additional modifications by Kiyoshi Ikuma (© 2024).
