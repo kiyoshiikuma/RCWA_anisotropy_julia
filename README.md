@@ -1,4 +1,4 @@
-# CWA_anisotropy_julia
+# RCWA_anisotropy_julia
 
 ### [2D_RCWA.ipynb](2D_RCWA.ipynb) : 2D_RCWA関数の説明とRCWAの原理
 
