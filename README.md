@@ -1,8 +1,8 @@
-# RCWA_anisotropy_julia
+# RCWA_anisotropy.jl
 
-### [2D_RCWA.ipynb](2D_RCWA.ipynb) : 2D_RCWA関数の説明とRCWAの原理
+### [2D_RCWA.ipynb](2D_RCWA.ipynb) : Explanation of the 2D_RCWA Function and the Principle of RCWA
 
-### [Bire_RCWA.ipynb](Bire_RCWA.ipynb) : Bire_RCWA関数の説明と複屈折RCWAの原理
+### [Bire_RCWA.ipynb](Bire_RCWA.ipynb) : Explanation of the Bire_RCWA Function and the Principle of Birefringent RCWA
 
 ## Acknowledgements
 
