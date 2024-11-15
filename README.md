@@ -1,8 +1,8 @@
 # RCWA_anisotropy.jl
 
-### [2D_RCWA.ipynb](2D_RCWA.ipynb) : Explanation of the 2D_RCWA Function and the Principle of RCWA
+[2D_RCWA.ipynb](2D_RCWA.ipynb) : Explanation of the 2D_RCWA Function and the Principle of RCWA
 
-### [Bire_RCWA.ipynb](Bire_RCWA.ipynb) : Explanation of the Bire_RCWA Function and the Principle of Birefringent RCWA
+[Bire_RCWA.ipynb](Bire_RCWA.ipynb) : Explanation of the Bire_RCWA Function and the Principle of Birefringent RCWA
 
 ## Acknowledgements
 
